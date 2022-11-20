@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*html": "html",
+        "*.xml": "xml",
+        "iostream": "cpp"
+    }
+}
