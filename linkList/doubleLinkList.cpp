@@ -4,22 +4,22 @@ struct node{
     int data;
     struct node *next,*pre;
 };
-struct node *head;
+struct node *head,*lastNode;
 
 void insertAtBeg(void){
     int num;
     cout<<"Enter the number to add in beginning: ";
     cin>>num;
-    node *newNode= new node();
-    newNode->data=num;
-    newNode->next=newNode->pre=NULL;
+    node *temp= new node();
+    temp->data=num;
+    temp->next=temp->pre=NULL;
     if(head==NULL){
-        head=newNode;
+        head=temp;
     }
     else{
-        newNode->next=head;
-        head->pre=newNode;
-        head=newNode;
+        temp->next=head;
+        head->pre=temp;
+        head=temp;
     }
 }
 
@@ -27,19 +27,22 @@ void insertAtEnd(void){
     int num;
     cout<<"Enter the numbers to insert at end: "<<endl;
     cin>>num;
-    node *newNode=new node();
-    struct node *temp;
-    newNode->next=newNode->pre=NULL;
+    node *temp=new node();
+    temp->data=num;
+    temp->next=NULL;
+    temp->pre=NULL;
     if(head==NULL){
-        newNode->next=head;
-        head=newNode;
+        head=temp;
     }
     else{
-        temp=head;
-        while(temp->next!=NULL){
-            temp=temp->next;
+        struct node *trav;
+        trav=head;
+        while(trav->next!=NULL){
+            trav=trav->next;
         }
-
+        lastNode=trav;
+        trav->next=temp;
+        temp->pre=trav;
     }
 
 }
@@ -47,6 +50,7 @@ void insertAtEnd(void){
 void display(void){
     cout<<"\nThe numbers in linklist is: \n";
     struct node *temp;
+    temp=head;
     while (temp->next!=NULL)
     {
         cout<<temp->data<<endl;
@@ -56,10 +60,16 @@ void display(void){
 }
 
 int main(){
+    // insertAtEnd();
+    // insertAtEnd();
+    // insertAtEnd();
+    // insertAtEnd();
+    // insertAtEnd();
     insertAtBeg();
     insertAtBeg();
     insertAtBeg();
     insertAtBeg();
     insertAtBeg();
+    insertAtEnd();
     display();
 }

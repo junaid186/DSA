@@ -58,7 +58,7 @@ void insertAtPos(void){
     }
     else{
             temp=head;
-            for(int i=2; i<=loc;i++){
+            for(int i=2; i<loc;i++){
                 temp=temp->next;
                 if(temp->next==NULL){
                     cout<<"\ncan't insert\n";
