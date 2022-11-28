@@ -18,10 +18,31 @@ void insertAtBeg(void){
     }
     else{
         newNode->next=head;
+        head->pre=newNode;
         head=newNode;
     }
 }
 
+void insertAtEnd(void){
+    int num;
+    cout<<"Enter the numbers to insert at end: "<<endl;
+    cin>>num;
+    node *newNode=new node();
+    struct node *temp;
+    newNode->next=newNode->pre=NULL;
+    if(head==NULL){
+        newNode->next=head;
+        head=newNode;
+    }
+    else{
+        temp=head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+
+    }
+
+}
 
 void display(void){
     cout<<"\nThe numbers in linklist is: \n";
