@@ -70,6 +70,5 @@ int main(){
     insertAtBeg();
     insertAtBeg();
     insertAtBeg();
-    insertAtEnd();
     display();
 }
